@@ -1,0 +1,11 @@
+{
+  "name": "assignment1-express-portfolio",
+  "version": "1.0.0",
+  "description": "express and node",
+  "main": "server.js",
+  "author": "kennyf",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
