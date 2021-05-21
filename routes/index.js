@@ -22,17 +22,25 @@ router.get("/about", function (req, res, next) {
   });
 });
 
-/* GET Poducts page. */
-router.get("/products", function (req, res, next) {
-  res.render("index", {
-    title: "Products",
-  });
-});
-
-/* GET Services page. */
+/* GET About page. */
 router.get("/services", function (req, res, next) {
   res.render("index", {
     title: "Services",
+  });
+});
+
+/* GET Projects page. */
+router.get("/projects", function (req, res, next) {
+  res.render("index", {
+    title: "Projects",
+  });
+});
+
+/* GET Blog page. */
+router.get("/blog", function (req, res, next) {
+  res.render("index", {
+    title: "Blog",
+    active: "active",
   });
 });
 
