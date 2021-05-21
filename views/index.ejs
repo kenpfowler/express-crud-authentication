@@ -31,34 +31,56 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
+
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/home"
-                ><i class="fas fa-home"></i> Home</a
+            <% if (title === "Home") { %>
+              <a class="nav-link active" aria-current="page" href="/home">
+              <% } else { %>
+                <a class="nav-link" aria-current="page" href="/home">
+              <% } %>
+              <i class="fas fa-home"></i> Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/services"
-                ><i class="fas fa-concierge-bell"></i> Services</a
+              <% if (title === "Services") { %>
+                <a class="nav-link active" aria-current="page" href="/services">
+                <% } else { %>
+                  <a class="nav-link" aria-current="page" href="/services">
+                <% } %>
+  <i class="fas fa-concierge-bell"></i> Services</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/projects"
-                ><i class="fas fa-cogs"></i> Projects</a
+              <% if (title === "Projects") { %>
+                <a class="nav-link active" aria-current="page" href="/projects">
+                <% } else { %>
+                  <a class="nav-link" aria-current="page" href="/projects">
+                <% } %>
+<i class="fas fa-cogs"></i> Projects</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/blog"
-                ><i class="fas fa-blog"></i> Blog</a
+              <% if (title === "Blog") { %>
+                <a class="nav-link active" aria-current="page" href="/blog">
+                <% } else { %>
+                  <a class="nav-link" aria-current="page" href="/blog">
+                <% } %><i class="fas fa-blog"></i> Blog</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link l1" aria-current="page" href="/aboutus"
-                ><i class="far fa-question-circle"></i> About</a
+              <% if (title === "About") { %>
+                <a class="nav-link active" aria-current="page" href="/about">
+                <% } else { %>
+                  <a class="nav-link" aria-current="page" href="/about">
+                <% } %><i class="far fa-question-circle"></i> About</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/contact"
-                ><i class="fas fa-mobile-alt"></i> Contact</a
+              <% if (title === "Contact") { %>
+                <a class="nav-link active" aria-current="page" href="/contact">
+                <% } else { %>
+                  <a class="nav-link" aria-current="page" href="/contact">
+                <% } %><i class="fas fa-mobile-alt"></i> Contact</a
               >
             </li>
           </ul>
