@@ -22,7 +22,7 @@
     "popper.js": "^1.16.1"
   },
   "description": "demo application for COMP229",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "https://github.com/kenpfowler/comp229-m2021-express-app.git",
   "author": "Kenny <kenpfowler@gmail.com>",
   "license": "MIT"
