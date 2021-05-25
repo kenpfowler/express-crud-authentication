@@ -36,14 +36,6 @@ router.get("/projects", function (req, res, next) {
   });
 });
 
-/* GET Blog page. */
-router.get("/blog", function (req, res, next) {
-  res.render("index", {
-    title: "Blog",
-    active: "active",
-  });
-});
-
 /* GET About Us page. */
 router.get("/aboutus", function (req, res, next) {
   res.render("index", {
