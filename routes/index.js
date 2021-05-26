@@ -37,9 +37,9 @@ router.get("/projects", function (req, res, next) {
 });
 
 /* GET About Us page. */
-router.get("/aboutus", function (req, res, next) {
+router.get("/about", function (req, res, next) {
   res.render("index", {
-    title: "About Us",
+    title: "About",
   });
 });
 
