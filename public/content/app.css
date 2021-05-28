@@ -1,10 +1,20 @@
-/* custom css goes here! */
+/*
+File name: app.css
+Student: Ken Fowler
+StudentID: 301155972 
+Date: 2021/05/27 
+ */
+
+/* general styles */
 * {
   font-family: "Roboto", sans-serif;
 }
 body {
   height: 100%;
 }
+
+/* homepage styling */
+
 .jumbotron {
   background-image: url(../assets/images/zelda-theme-background.jpg);
   height: 60vh;
@@ -38,13 +48,6 @@ body {
   filter: blur(40px);
 }
 
-.video {
-  padding-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .skills {
   text-align: center;
 }
@@ -71,4 +74,12 @@ body {
 
 .fa-bootstrap {
   color: purple;
+}
+
+/* project custom styling */
+.video {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
