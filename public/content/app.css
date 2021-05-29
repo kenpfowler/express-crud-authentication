@@ -52,6 +52,10 @@ body {
   text-align: center;
 }
 
+.services {
+  height: 100%;
+}
+
 /* icon configuration */
 .fa-html5 {
   color: tomato;
