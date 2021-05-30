@@ -1,6 +1,6 @@
 # Express Portfolio Site
 
-## Due: Week 4 (Friday October 9, 2020) @ midnight
+## Due: Week 4 (Friday June 4th, 2021) @ midnight
 
 ### Overview: Create your Personal Portfolio Website using ExpressJS and implementing the EJS templating engine. Your site must be hosted live on a cloud service such as Microsoft Azure, Heroku, or Digital Ocean.
 
@@ -13,22 +13,26 @@
 - [x] You must include a Navigation Bar or other Navigation scheme that allows the user to view each page of your site. (2 Marks: Content).
 - [x] You must include a Custom Logo for your site, this should be placed in or around the main Navigation bar. The Custom Logo can be as simple or artistic as you desire (e.g. you could use a primitive colour-filled shape like a triangle or hexagon with your initials positioned inside). Please do not use a logo that belongs to another company or person. (2 Marks: Content).
 - [x] Your Home Page should include some sort of welcome message and link or button that allows the user to redirect to your About Me Page and / or other pages. I recommend also including some sort of Mission Statement (2 Marks: Content)
-- [ ] Your About Me Page should include your legal name, an image of you (I recommend a head and shoulders shot), a short paragraph about who you are. Keep this clean and simple as it may be viewed by perspective employers. (1 Mark: Content)
-- [ ] Your About Me page should include a link to a PDF version of your Resume (1 Mark: Content).
-- [ ] Your Projects Page should include images and information for at least 3 Projects you wish to highlight. These could be current projects you are working on or past projects you have completed. Include an image for each Project and a short description of your role and the outcome. (2 Marks: Content)
+- [x] Your About Me Page should include your legal name, an image of you (I recommend a head and shoulders shot), a short paragraph about who you are. Keep this clean and simple as it may be viewed by perspective employers. (1 Mark: Content)
+- [x] Your About Me page should include a link to a PDF version of your Resume (1 Mark: Content).
+- [x] Your Projects Page should include images and information for at least 3 Projects you wish to highlight. These could be current projects you are working on or past projects you have completed. Include an image for each Project and a short description of your role and the outcome. (2 Marks: Content)
 - [ ] Your Services Page should include a short list of services you offer (e.g. general programming, web development, mobile apps, etc.). I recommend including images that make this more appealing to view. (2 Marks: Content)
 - [ ] Your Contact Page should include your contact information in a panel or other construct. (1 Mark: Content)
 - [ ] Your Contact Page should include a short interactive form that allows the user send you a message and provide basic contact information (First Name, Last Name, Contact Number, Email Address, Message, etc.). This form does not have to be fully functional initially. However, it should be able to capture the information entered by the user and redirect them back to the Home Page (4 Marks: Content).
 
 2. Your Portfolio site will use ExpressJS and NodeJS and your web pages have been split to use different View templates and partials by implementing the EJS templating engine and Express Routes (8 Marks: GUI, 26 Marks: Functionality):
-   a. Your site should include at least 2 View templates – one for your Home Page and one for your Contact Me page. Note: You may include additional templates as needed to accommodate other site pages (13 Marks: Functionality, 8 Marks: GUI).
-   b. An Express Route must exist for each page of your site. Note: You will need to use the router.get(path, callback(req, res, next)) method structure with a res.render(view, locals) method call to render each view (13 Marks: Functionality).
+
+- [ ] Your site should include at least 2 View templates – one for your Home Page and one for your Contact Me page. Note: You may include additional templates as needed to accommodate other site pages (13 Marks: Functionality, 8 Marks: GUI).
+- [ ]An Express Route must exist for each page of your site. Note: You will need to use the router.get(path, callback(req, res, next)) method structure with a res.render(view, locals) method call to render each view (13 Marks: Functionality).
+
 3. Your site will use the new structure created by the Express Generator. Your site files will be migrated to work within the public, routes and views folders (26 Marks: Site Structure):
-   a. Generate your site structure with the Express Generator. Note: You must use the -e option to ensure that you implement the EJS templating engine for Express (9 Marks: Site Structure).
-   b. Your JavaScript, CSS and Multimedia Asset Files should be moved to separate folders within the public folder. Using the Twitter Bootstrap CSS framework is strongly recommended, though not required. Note: the public folder is part of the path and does not have to be referenced (6 Marks: Site Structure).
-   c. You will define routes for all of your site pages in the index.js file in your routes folder (2 Mark: Site Structure).
-   d. Your views folder will contain your EJS page templates. You will create a separate folder named partials for all of your partial EJS files. You will need several partials including header.ejs, content.ejs, footer.ejs and others. (6 Marks: Site Structure).
-   e. All Your Code (HTML, CSS, JavaScript, jQuery, etc.) is error free (3 Marks: Site Structure).
+
+- [ ] Generate your site structure with the Express Generator. Note: You must use the -e option to ensure that you implement the EJS templating engine for Express (9 Marks: Site Structure).
+- [ ] Your JavaScript, CSS and Multimedia Asset Files should be moved to separate folders within the public folder. Using the Twitter Bootstrap CSS framework is strongly recommended, though not required. Note: the public folder is part of the path and does not have to be referenced (6 Marks: Site Structure).
+- [ ] You will define routes for all of your site pages in the index.js file in your routes folder (2 Mark: Site Structure).
+- [ ] Your views folder will contain your EJS page templates. You will create a separate folder named partials for all of your partial EJS files. You will need several partials including header.ejs, content.ejs, footer.ejs and others. (6 Marks: Site Structure).
+- [ ] All Your Code (HTML, CSS, JavaScript, jQuery, etc.) is error free (3 Marks: Site Structure).
+
 4. Include Internal Documentation for your site (5 Marks: Internal Documentation):
    a. Ensure you include a comment header for your CSS and JavaScript files that indicate: the File name, Student’s Name, StudentID, and Date, (2 Marks: Internal Documentation).
    b. Ensure you include a section headers for all of your HTML structure, CSS style sections, and any JavaScript functions (1 Marks: Internal Documentation)
