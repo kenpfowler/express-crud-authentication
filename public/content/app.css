@@ -17,7 +17,7 @@ body {
 
 .jumbotron {
   background-image: url(../assets/images/zelda-theme-background.jpg);
-  height: 60vh;
+  height: 57vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -48,6 +48,7 @@ body {
   filter: blur(40px);
 }
 
+/* Card Customizations */
 .skills {
   text-align: center;
 }
@@ -60,7 +61,7 @@ body {
   margin: 0 auto;
 }
 
-/* icon configuration */
+/* icon customizations */
 .fa-html5 {
   color: tomato;
 }
@@ -84,7 +85,7 @@ body {
   color: purple;
 }
 
-/* project custom styling */
+/* iframe/video element positioning */
 .video {
   padding-top: 20px;
   display: flex;
