@@ -56,6 +56,10 @@ body {
   height: 100%;
 }
 
+.card {
+  margin: 0 auto;
+}
+
 /* icon configuration */
 .fa-html5 {
   color: tomato;
