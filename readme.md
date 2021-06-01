@@ -48,15 +48,12 @@
 
 6. Create a Short Video presentation on YouTube or another streaming provider. You must include a short PowerPoint (or Google Slides) Slide Deck that includes a single slide to start your video (10 Marks: Video)
 
-- [] The first (and only) Slide of your Slide Deck must include a current image of you (no avatars allowed) that is displayed appropriately on the page. You must also include your Full Name, Student ID, the Course Code, Course Name, and your Assignment information. (2 Marks: video)
-- [] You will demonstrate your site’s functionality. You must show each page working properly (2 Marks: Video)
-- [] You will describe the code in your app.js file that drives the functionality of your site (2 Marks Video).
-- [] Sound for your Video must at an appropriate level so that your voice may be clearly heard, and your screen resolution should be set so that your code and site details are clearly visible (2 Marks: Video).
-- [] Your Short Video should run no more than 5 minutes (2 Marks: Video).
+- [x] The first (and only) Slide of your Slide Deck must include a current image of you (no avatars allowed) that is displayed appropriately on the page. You must also include your Full Name, Student ID, the Course Code, Course Name, and your Assignment information. (2 Marks: video)
+- [x] You will demonstrate your site’s functionality. You must show each page working properly (2 Marks: Video)
+- [x] You will describe the code in your app.js file that drives the functionality of your site (2 Marks Video).
+- [x] Sound for your Video must at an appropriate level so that your voice may be clearly heard, and your screen resolution should be set so that your code and site details are clearly visible (2 Marks: Video).
+- [x] Your Short Video should run no more than 5 minutes (2 Marks: Video).
 
 ### SUBMITTING YOUR WORK
 
-Your submission should include:
--[] A zip archive of your website’s Project files
--[] A link to GitHub (preferable).
--[] A link to your live portfolio site hosted with a Cloud provider
+7. Your submission should include: -[x] A zip archive of your website’s Project files -[x] A link to GitHub (preferable). -[x] A link to your live portfolio site hosted with a Cloud provider
