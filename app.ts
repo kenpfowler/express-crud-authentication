@@ -1,4 +1,4 @@
-//installed 3rd party packages
+//installed 3rd party packages and node modules
 import createError from "http-errors";
 import express from "express";
 import path from "path";
@@ -32,7 +32,11 @@ app.use(express.static(path.join(__dirname, "node_modules")));
 app.use("/", indexRouter);
 
 // catch 404 and forward to error handler
-app.use(function (req: any, res: any, next: (arg0: any) => void) {
+app.use(function (
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+): void {
   next(createError(404));
 });
 
