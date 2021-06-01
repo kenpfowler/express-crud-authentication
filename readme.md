@@ -18,7 +18,7 @@
 - [x] Your Projects Page should include images and information for at least 3 Projects you wish to highlight. These could be current projects you are working on or past projects you have completed. Include an image for each Project and a short description of your role and the outcome. (2 Marks: Content)
 - [x] Your Services Page should include a short list of services you offer (e.g. general programming, web development, mobile apps, etc.). I recommend including images that make this more appealing to view. (2 Marks: Content)
 - [x] Your Contact Page should include your contact information in a panel or other construct. (1 Mark: Content)
-- [] Your Contact Page should include a short interactive form that allows the user send you a message and provide basic contact information (First Name, Last Name, Contact Number, Email Address, Message, etc.). This form does not have to be fully functional initially. However, it should be able to capture the information entered by the user and redirect them back to the Home Page (4 Marks: Content).
+- [x] Your Contact Page should include a short interactive form that allows the user send you a message and provide basic contact information (First Name, Last Name, Contact Number, Email Address, Message, etc.). This form does not have to be fully functional initially. However, it should be able to capture the information entered by the user and redirect them back to the Home Page (4 Marks: Content).
 
 2. Your Portfolio site will use ExpressJS and NodeJS and your web pages have been split to use different View templates and partials by implementing the EJS templating engine and Express Routes (8 Marks: GUI, 26 Marks: Functionality):
 

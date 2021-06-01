@@ -1,5 +1,5 @@
 import express from "express";
-let router = express.Router();
+const router = express.Router();
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -49,4 +49,4 @@ router.get("/contact", function (req, res, next) {
   });
 });
 
-module.exports = router;
+export default router;

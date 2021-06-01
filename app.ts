@@ -6,12 +6,7 @@ import cookieParser from "cookie-parser";
 import logger from "morgan";
 
 //routes for main top level site
-let indexRouter = require("./routes/index");
-
-//route for any users
-let usersRouter = require("./routes/users");
-const { Http2ServerRequest } = require("node:http2");
-const { Server } = require("node:http");
+import indexRouter from "./routes/index";
 
 //instantiates an express object
 let app = express();
@@ -35,7 +30,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "node_modules")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req: any, res: any, next: (arg0: any) => void) {
@@ -44,14 +38,10 @@ app.use(function (req: any, res: any, next: (arg0: any) => void) {
 
 // error handler
 app.use(function (
-  err: { message: any; status: any },
-  req: { app: { get: (arg0: string) => string } },
-  res: {
-    locals: { message: any; error: any };
-    status: (arg0: any) => void;
-    render: (arg0: string, arg1: { title: string }) => void;
-  },
-  next: any
+  err: createError.HttpError,
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
 ) {
   // set locals, only providing error in development
   res.locals.message = err.message;
@@ -62,4 +52,5 @@ app.use(function (
   res.render("error", { title: "Error" });
 });
 
-module.exports = app;
+//defaults the express application and all its configurations
+export default app;

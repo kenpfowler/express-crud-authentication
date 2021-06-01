@@ -3,9 +3,10 @@
 /**
  * Module dependencies.
  */
-
-let app = require("./app");
-let debug = require("debug")("assignment1-express-portfolio:server");
+import createError from "http-errors";
+import app from "./app";
+import debug from "debug";
+debug("assignment1-express-portfolio:server");
 import http from "http";
 /**
  * Get port from environment and store in Express.
@@ -32,7 +33,7 @@ server.on("listening", onListening);
  * Normalize a port into a number, string, or false.
  */
 
-function normalizePort(val: string) {
+function normalizePort(val: string): number | string | boolean {
   let port = parseInt(val, 10);
 
   if (isNaN(port)) {
@@ -52,7 +53,7 @@ function normalizePort(val: string) {
  * Event listener for HTTP server "error" event.
  */
 
-function onError(error: { syscall: string; code: any }) {
+function onError(error: createError.HttpError): void {
   if (error.syscall !== "listen") {
     throw error;
   }
@@ -78,7 +79,7 @@ function onError(error: { syscall: string; code: any }) {
  * Event listener for HTTP server "listening" event.
  */
 
-function onListening() {
+function onListening(): void {
   let addr = server.address();
   let bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
   debug("Listening on " + bind);
