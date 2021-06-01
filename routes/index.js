@@ -1,53 +1,45 @@
-var express = require("express");
-var router = express.Router();
-
-/* GET home page. */
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+let router = express_1.default.Router();
 router.get("/", function (req, res, next) {
-  res.render("index", {
-    title: "Home",
-  });
+    res.render("index", {
+        title: "Home",
+        page: "home",
+    });
 });
-
-/* GET home page if user types home */
 router.get("/home", function (req, res, next) {
-  res.render("index", {
-    title: "Home",
-  });
+    res.render("index", {
+        title: "Home",
+        page: "home",
+    });
 });
-
-/* GET About page. */
 router.get("/about", function (req, res, next) {
-  res.render("index", {
-    title: "About",
-  });
+    res.render("index", {
+        title: "About",
+        page: "about",
+    });
 });
-
-/* GET About page. */
 router.get("/services", function (req, res, next) {
-  res.render("index", {
-    title: "Services",
-  });
+    res.render("index", {
+        title: "Services",
+        page: "services",
+    });
 });
-
-/* GET Projects page. */
 router.get("/projects", function (req, res, next) {
-  res.render("index", {
-    title: "Projects",
-  });
+    res.render("index", {
+        title: "Projects",
+        page: "projects",
+    });
 });
-
-/* GET About Us page. */
-router.get("/about", function (req, res, next) {
-  res.render("index", {
-    title: "About",
-  });
-});
-
-/* GET Contact Us page. */
 router.get("/contact", function (req, res, next) {
-  res.render("index", {
-    title: "Contact",
-  });
+    res.render("index", {
+        title: "Contact",
+        page: "contact",
+    });
 });
-
 module.exports = router;
+//# sourceMappingURL=index.js.map
