@@ -4,6 +4,7 @@ import express from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
+import MongoDB from "mongodb";
 
 //database setup
 import mongoose from "mongoose";

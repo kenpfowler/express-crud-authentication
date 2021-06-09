@@ -1,59 +1,34 @@
 import express from "express";
 const router = express.Router();
 
+//bring in index controllers
+import {
+  DisplayHomePage,
+  DisplayAboutPage,
+  DisplayServicesPage,
+  DisplayProjectsPage,
+  DisplayContactPage,
+  DisplayLoginPage,
+} from "../Controllers/index.js";
+
 /* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("index", {
-    title: "Home",
-    page: "home",
-  });
-});
+router.get("/", DisplayHomePage);
 
 /* GET home page if user types home */
-router.get("/home", function (req, res, next) {
-  res.render("index", {
-    title: "Home",
-    page: "home",
-  });
-});
+router.get("/home", DisplayHomePage);
 
 /* GET About page. */
-router.get("/about", function (req, res, next) {
-  res.render("index", {
-    title: "About",
-    page: "about",
-  });
-});
+router.get("/about", DisplayAboutPage);
 
 /* GET Services page. */
-router.get("/services", function (req, res, next) {
-  res.render("index", {
-    title: "Services",
-    page: "services",
-  });
-});
+router.get("/services", DisplayServicesPage);
 
 /* GET Projects page. */
-router.get("/projects", function (req, res, next) {
-  res.render("index", {
-    title: "Projects",
-    page: "projects",
-  });
-});
+router.get("/projects", DisplayProjectsPage);
 
 /* GET Contact Us page. */
-router.get("/contact", function (req, res, next) {
-  res.render("index", {
-    title: "Contact",
-    page: "contact",
-  });
-});
+router.get("/contact", DisplayContactPage);
 
-router.get("/login", function (req, res, next) {
-  res.render("index", {
-    title: "Login",
-    page: "login",
-  });
-});
+router.get("/login", DisplayLoginPage);
 
 export default router;
