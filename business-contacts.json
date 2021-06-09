@@ -23,5 +23,20 @@
     "name": "Maggie Simpson",
     "phone": "456-894-9985",
     "email": "smartbaby@springfield.ca"
+  },
+  {
+    "name": "Principal Skinner",
+    "phone": "658-589-9865",
+    "email": "coolestprincipal@springfield-elementary.ca"
+  },
+  {
+    "name": "Lenny",
+    "phone": "458-985-6985",
+    "email": "iheartcarl@powerplant.ca"
+  },
+  {
+    "name": "Carl",
+    "phone": "985-985-6985",
+    "email": "iheartlenny@powerplant.ca"
   }
 ]
