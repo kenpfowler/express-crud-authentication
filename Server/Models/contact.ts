@@ -14,6 +14,6 @@ const ContactSchema = new Schema(
   }
 );
 
-const Model = Mongoose.model("Contacts", ContactSchema);
+const ContactModel = Mongoose.model("Contacts", ContactSchema);
 
-export default Model;
+export default ContactModel;

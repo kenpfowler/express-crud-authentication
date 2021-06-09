@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from "express";
+import { Request, Response, NextFunction } from "express";
 
 export function DisplayHomePage(
   req: Request,
@@ -53,6 +53,7 @@ export function DisplayContactPage(
     page: "contact",
   });
 }
+
 export function DisplayLoginPage(
   req: Request,
   res: Response,

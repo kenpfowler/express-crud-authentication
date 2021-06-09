@@ -4,7 +4,6 @@ import express from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
-import MongoDB from "mongodb";
 
 //database setup
 import mongoose from "mongoose";
@@ -24,6 +23,9 @@ mongoDB.once("open", () => {
 
 //routes for main top level site
 import indexRouter from "../Routes/index.js";
+
+//routes for business contact db
+import contactsRouter from "../Routes/contact.js";
 
 //instantiates an express object
 let app = express();
@@ -47,6 +49,9 @@ app.use(express.static(path.join(__dirname, "../../Client")));
 app.use(express.static(path.join(__dirname, "../../node_modules")));
 
 app.use("/", indexRouter);
+
+//define area to include buiness contacts
+app.use("/businesscontacts", contactsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (

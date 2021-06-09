@@ -20,6 +20,7 @@ mongoDB.once("open", () => {
     console.log(`Connected to MongoDB at: ${db_js_1.DB.businesscontacts}`);
 });
 const index_js_1 = __importDefault(require("../Routes/index.js"));
+const contact_js_1 = __importDefault(require("../Routes/contact.js"));
 let app = express_1.default();
 app.set("views", path_1.default.join(__dirname, "../Views"));
 app.set("view engine", "ejs");
@@ -30,6 +31,7 @@ app.use(cookie_parser_1.default());
 app.use(express_1.default.static(path_1.default.join(__dirname, "../../Client")));
 app.use(express_1.default.static(path_1.default.join(__dirname, "../../node_modules")));
 app.use("/", index_js_1.default);
+app.use("/businesscontacts", contact_js_1.default);
 app.use(function (req, res, next) {
     next(http_errors_1.default(404));
 });

@@ -1,0 +1,30 @@
+<%- include partials/header.ejs %>
+<%- include partials/main_nav.ejs %>
+
+<%# pages included based on page property passed to route %>
+<div class="container">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">E-Mail</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% for(let i = 0; i < businesscontacts.length; i++) {%>
+    <tr>
+        <th scope="row"><%= i + 1 %></th>
+        <td><%= businesscontacts[i]['name'] %></td>
+        <td><%= businesscontacts[i]['phone'] %></td>
+        <td><%= businesscontacts[i]['email'] %></td>
+    </tr>
+
+<% } %>
+  </tbody>
+</table>
+</div>
+<%- include partials/bottom_nav.ejs %>
+<%- include partials/footer.ejs %>
+
