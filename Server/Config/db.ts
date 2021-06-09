@@ -1,1 +1,4 @@
-export const DBURI = "mongodb://localhost/users";
+export const DB = {
+  users: "mongodb://localhost/users",
+  businesscontacts: "mongodb://localhost/businesscontacts",
+};

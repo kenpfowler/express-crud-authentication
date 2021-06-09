@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Homer Simpson",
+    "phone": "658-895-8968",
+    "email": "doughnuts@powerplant.ca"
+  },
+  {
+    "name": "Mr. Burns",
+    "phone": "189-896-8965",
+    "email": "excellent@powerplant.ca"
+  },
+  {
+    "name": "Apu",
+    "phone": "789-986-8965",
+    "email": "apu@quickiemart.ca"
+  },
+  {
+    "name": "Chief Wiggum",
+    "phone": "233-234-1252",
+    "email": "police@springfield.ca"
+  },
+  {
+    "name": "Maggie Simpson",
+    "phone": "456-894-9985",
+    "email": "smartbaby@springfield.ca"
+  }
+]

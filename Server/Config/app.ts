@@ -7,15 +7,18 @@ import logger from "morgan";
 
 //database setup
 import mongoose from "mongoose";
-import { DBURI } from "./db.js";
+import { DB } from "./db.js";
 
 //point mongoose to the DB URI
-mongoose.connect(DBURI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(DB.businesscontacts, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 let mongoDB = mongoose.connection;
 mongoDB.on("error", console.error.bind(console, "Connection Error: ..."));
 mongoDB.once("open", () => {
-  console.log(`Connected to MongoDB at: ${DBURI}`);
+  console.log(`Connected to MongoDB at: ${DB.businesscontacts}`);
 });
 
 //routes for main top level site

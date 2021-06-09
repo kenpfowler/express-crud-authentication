@@ -15,7 +15,7 @@
 1. In addition to your site’s main Nav Bar and page template components, your Login View should include
    the following components (4 Marks: GUI, 25 Marks: Functionality):
 
-- [ ] A Form that includes a username field, a password field and a Login Button. (4 Marks: GUI, 4
+- [x] A Form that includes a username field, a password field and a Login Button. (4 Marks: GUI, 4
       Marks: Functionality).
 - [ ] The application database will contain a user collection. The single document in the collection will
       include your username, password, email address and other relevant information. The username
