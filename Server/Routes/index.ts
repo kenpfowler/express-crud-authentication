@@ -1,7 +1,7 @@
 import express from "express";
 const router = express.Router();
 
-//bring in index controllers
+//import index controllers
 import {
   DisplayHomePage,
   DisplayAboutPage,

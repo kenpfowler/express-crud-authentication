@@ -1,6 +1,8 @@
 import express from "express";
-import { DisplayBusinessContacts } from "../Controllers/contact";
 const router = express.Router();
+
+//import contact controllers
+import { DisplayBusinessContacts } from "../Controllers/contact";
 
 //GET businesscontacts page
 router.get("/", DisplayBusinessContacts);

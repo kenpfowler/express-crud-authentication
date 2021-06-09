@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction } from "express";
 import ContactModel from "../Models/contact.js";
 
+//create and export controller to be used by the contact router
 export function DisplayBusinessContacts(
   req: Request,
   res: Response,

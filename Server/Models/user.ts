@@ -1,7 +1,9 @@
-import { Mode } from "fs";
 import Mongoose from "mongoose";
+
+// Create mongoose schema
 const Schema = Mongoose.Schema;
 
+//configure schema to interface with user collection
 const UserSchema = new Schema(
   {
     Username: String,

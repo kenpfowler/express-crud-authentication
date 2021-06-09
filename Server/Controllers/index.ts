@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
+//create and export controllers to be used by the index router
 export function DisplayHomePage(
   req: Request,
   res: Response,

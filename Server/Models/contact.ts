@@ -3,11 +3,12 @@ import Mongoose from "mongoose";
 //shorthand for mongoose schema
 const Schema = Mongoose.Schema;
 
+//configure schema to interface with businesscontacts collection
 const ContactSchema = new Schema(
   {
-    Name: String,
-    Phone: String,
-    Email: String,
+    name: String,
+    phone: String,
+    email: String,
   },
   {
     collection: "businesscontacts",
