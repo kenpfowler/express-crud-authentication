@@ -41,5 +41,11 @@ router.get("/contact", function (req, res, next) {
         page: "contact",
     });
 });
+router.get("/login", function (req, res, next) {
+    res.render("index", {
+        title: "Login",
+        page: "login",
+    });
+});
 exports.default = router;
 //# sourceMappingURL=index.js.map
