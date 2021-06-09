@@ -8,6 +8,14 @@ const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const morgan_1 = __importDefault(require("morgan"));
+const mongoose_1 = __importDefault(require("mongoose"));
+const db_js_1 = require("./db.js");
+mongoose_1.default.connect(db_js_1.DBURI, { useNewUrlParser: true, useUnifiedTopology: true });
+let mongoDB = mongoose_1.default.connection;
+mongoDB.on("error", console.error.bind(console, "Connection Error: ..."));
+mongoDB.once("open", () => {
+    console.log(`Connected to MongoDB at: ${db_js_1.DBURI}`);
+});
 const index_js_1 = __importDefault(require("../Routes/index.js"));
 let app = express_1.default();
 app.set("views", path_1.default.join(__dirname, "../Views"));

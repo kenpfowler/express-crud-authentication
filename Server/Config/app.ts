@@ -5,6 +5,19 @@ import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 
+//database setup
+import mongoose from "mongoose";
+import { DBURI } from "./db.js";
+
+//point mongoose to the DB URI
+mongoose.connect(DBURI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+let mongoDB = mongoose.connection;
+mongoDB.on("error", console.error.bind(console, "Connection Error: ..."));
+mongoDB.once("open", () => {
+  console.log(`Connected to MongoDB at: ${DBURI}`);
+});
+
 //routes for main top level site
 import indexRouter from "../Routes/index.js";
 
