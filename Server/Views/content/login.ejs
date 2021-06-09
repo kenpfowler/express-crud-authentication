@@ -1,0 +1,39 @@
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="card mb-3 p-4" style="max-width: 540px">
+    <div class="row g-0">
+      <div class="col-md-7">
+        <div class="card-body">
+          <h5 class="card-title">Sign in to collaborate:</h5>
+          <p class="card-text">
+            The contact information for members is located past the login. Sign
+            up to gain access!
+          </p>
+          <p class="card-text">
+            <small class="text-muted"
+              >Your provided email will be shared.</small
+            >
+          </p>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <form action="/login" method="post">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input
+              type="text"
+              name="username"
+              class="form-control"
+              id="username"
+              aria-describedby="username"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password-input" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" id="password-input" />
+          </div>
+          <button type="submit" class="btn btn-primary">Log In</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
