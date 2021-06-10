@@ -10,7 +10,20 @@ function DisplayAddPage(req, res, next) {
 }
 exports.DisplayAddPage = DisplayAddPage;
 function AddContact(req, res, next) {
-    contact_js_1.default.create("fsdfsdf", "sdfdsfd", "sfddsf");
+    let newContact = new contact_js_1.default({
+        name: req.body.name,
+        phone: req.body.phone,
+        email: req.body.email,
+    });
+    contact_js_1.default.create(newContact, (err, ContactModel) => {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        else {
+            res.redirect("/businesscontacts");
+        }
+    });
 }
 exports.AddContact = AddContact;
 function DisplayBusinessContacts(req, res, next) {

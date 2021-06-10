@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 const contact_1 = require("../Controllers/contact");
 router.get("/add", contact_1.DisplayAddPage);
-router.post("/add", (req, res, next) => { });
+router.post("/add", contact_1.AddContact);
 router.get("/", contact_1.DisplayBusinessContacts);
 router.get("businesscontacts", contact_1.DisplayBusinessContacts);
 router.get("/edit/:id", contact_1.DisplayEditPage);

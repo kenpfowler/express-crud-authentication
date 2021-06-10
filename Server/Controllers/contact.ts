@@ -18,7 +18,20 @@ export function AddContact(
   res: Response,
   next: NextFunction
 ): void {
-  ContactModel.create("fsdfsdf", "sdfdsfd", "sfddsf");
+  let newContact = new ContactModel({
+    name: req.body.name,
+    phone: req.body.phone,
+    email: req.body.email,
+  });
+
+  ContactModel.create(newContact, (err, ContactModel) => {
+    if (err) {
+      console.error(err);
+      res.end(err);
+    } else {
+      res.redirect("/businesscontacts");
+    }
+  });
 }
 
 //READ a document from database
