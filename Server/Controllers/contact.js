@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisplayEditPage = exports.DisplayBusinessContacts = exports.AddContact = exports.DisplayAddPage = void 0;
+exports.EditContact = exports.DisplayEditPage = exports.DisplayBusinessContacts = exports.AddContact = exports.DisplayAddPage = void 0;
 const contact_js_1 = __importDefault(require("../Models/contact.js"));
 function DisplayAddPage(req, res, next) {
     res.render("add", { title: "Add Contact" });
@@ -49,4 +49,21 @@ function DisplayEditPage(req, res, next) {
     });
 }
 exports.DisplayEditPage = DisplayEditPage;
+function EditContact(req, res, next) {
+    let id = req.params.id;
+    let updatedContact = new contact_js_1.default({
+        _id: id,
+        name: req.body.name,
+        phone: req.body.phone,
+        email: req.body.email,
+    });
+    contact_js_1.default.updateOne({ _id: id }, updatedContact, {}, (err) => {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.redirect("/businesscontacts");
+    });
+}
+exports.EditContact = EditContact;
 //# sourceMappingURL=contact.js.map

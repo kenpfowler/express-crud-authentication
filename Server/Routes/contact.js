@@ -11,7 +11,7 @@ router.post("/add", contact_1.AddContact);
 router.get("/", contact_1.DisplayBusinessContacts);
 router.get("businesscontacts", contact_1.DisplayBusinessContacts);
 router.get("/edit/:id", contact_1.DisplayEditPage);
-router.post("/edit/:id", (req, res, next) => { });
+router.post("/edit/:id", contact_1.EditContact);
 router.get("/delete", (req, res, next) => { });
 exports.default = router;
 //# sourceMappingURL=contact.js.map

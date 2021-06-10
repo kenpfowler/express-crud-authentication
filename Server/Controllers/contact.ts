@@ -1,9 +1,7 @@
 import express, { Request, Response, NextFunction } from "express";
 import ContactModel from "../Models/contact.js";
 
-//create and export controller to be used by the contact router
-
-//display page to ADD a document to the database
+//display page to CREATE a document and add to the database
 export function DisplayAddPage(
   req: Request,
   res: Response,
@@ -12,7 +10,7 @@ export function DisplayAddPage(
   res.render("add", { title: "Add Contact" });
 }
 
-//POST the reqeust to add
+//POST the CREATED document to the database
 export function AddContact(
   req: Request,
   res: Response,
@@ -68,5 +66,32 @@ export function DisplayEditPage(
       res.end(err);
     }
     res.render("edit", { title: "Edit List", item: businessContactToEdit });
+  });
+}
+
+export function EditContact(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): void {
+  //get the id property off the request objects parameters
+  let id = req.params.id;
+
+  let updatedContact = new ContactModel({
+    _id: id,
+    name: req.body.name,
+    phone: req.body.phone,
+    email: req.body.email,
+  });
+
+  //use the id requested and Mongoose Contact model to look for a match in the db
+  //pass the id, empty objects for unused parameters and a callback funcion
+  ContactModel.updateOne({ _id: id }, updatedContact, {}, (err) => {
+    if (err) {
+      //if theres an error, log and end the request
+      console.error(err);
+      res.end(err);
+    }
+    res.redirect("/businesscontacts");
   });
 }
