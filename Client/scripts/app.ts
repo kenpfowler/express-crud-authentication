@@ -15,8 +15,20 @@ Date: 2021/05/27
 
 window.onscroll = function () {
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-    (<HTMLElement>document.querySelector(".fixed-bottom")).style.zIndex = "-1";
+    (<HTMLElement>document.querySelector(".fixed-bottom")).style.display =
+      "none";
   } else {
-    (<HTMLElement>document.querySelector(".fixed-bottom")).style.zIndex = "10";
+    (<HTMLElement>document.querySelector(".fixed-bottom")).style.display =
+      "flex";
+  }
+};
+
+window.ontouchmove = function () {
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    (<HTMLElement>document.querySelector(".fixed-bottom")).style.display =
+      "none";
+  } else {
+    (<HTMLElement>document.querySelector(".fixed-bottom")).style.display =
+      "flex";
   }
 };
