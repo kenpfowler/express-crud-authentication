@@ -35,6 +35,7 @@ let app = express();
 
 //shows the express application where to find views (different pages use differnet view templates )
 app.set("views", path.join(__dirname, "../Views"));
+
 //the type of view engine we setup was express -e
 //this allows us to use the ejs templating syntax
 app.set("view engine", "ejs");

@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from "express";
+import { Request, Response, NextFunction } from "express";
 import ContactModel from "../Models/contact.js";
 
 //show page to CREATE new document
