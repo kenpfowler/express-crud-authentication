@@ -9,7 +9,8 @@
         <th scope="col">Name</th>
         <th scope="col">Phone</th>
         <th scope="col">E-Mail</th>
-        <th scope="col">Options</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <!-- render rows for each item in database -->
@@ -21,6 +22,7 @@
         <td><%= businesscontacts[i].phone %></td>
         <td><%= businesscontacts[i].email %></td>
         <td><a href=<%= "businesscontacts/edit/" + businesscontacts[i]._id %>><button class="btn btn-primary">Edit</button></a>
+        <td><a href=<%= "businesscontacts/delete/" + businesscontacts[i]._id %>><button class="btn btn-primary">Delete</button></a>
       </tr>
 
       <% } %>

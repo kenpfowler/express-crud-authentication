@@ -8,6 +8,7 @@ import {
   DisplayAddPage,
   AddContact,
   EditContact,
+  DeleteContact,
 } from "../Controllers/contact";
 
 //GET route for displaying the ADD page - CREATE Operation
@@ -28,6 +29,6 @@ router.get("/edit/:id", DisplayEditPage);
 router.post("/edit/:id", EditContact);
 
 //GET route to perform deletion - DELETE Operation
-router.get("/delete", (req, res, next) => {});
+router.get("/delete/:id", DeleteContact);
 
 export default router;
