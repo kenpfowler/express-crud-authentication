@@ -27,7 +27,7 @@ function AddContact(req, res, next) {
 }
 exports.AddContact = AddContact;
 function DisplayBusinessContacts(req, res, next) {
-    contact_js_1.default.find((err, businesscontacts) => {
+    contact_js_1.default.find({}, {}, { sort: { name: 1 } }, (err, businesscontacts) => {
         if (err) {
             console.error(err);
         }

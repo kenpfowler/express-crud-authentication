@@ -38,7 +38,7 @@ export function DisplayBusinessContacts(
   res: Response,
   next: NextFunction
 ): void {
-  ContactModel.find((err, businesscontacts) => {
+  ContactModel.find({}, {}, { sort: { name: 1 } }, (err, businesscontacts) => {
     if (err) {
       console.error(err);
     }

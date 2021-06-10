@@ -30,20 +30,20 @@
 2. Your Business Contacts List View should include the following components (8 Marks: GUI, 16 Marks:
    Functionality):
 
-- [ ] An alphabetically sorted list of contacts should appear on this page. The connection to the
+- [x] An alphabetically sorted list of contacts should appear on this page. The connection to the
       database you created will display all the contact data in a table. The table will only include The
       Contact Name, Contact Number and Email Address (4 Marks: GUI, 8 Marks: Functionality).
-- [ ] Include an Update Button and a Delete Button at the end of each Row of the Table. The Update
+- [x] Include an Update Button and a Delete Button at the end of each Row of the Table. The Update
       button links to the Update View. The Delete Button removes the contact from the database (4
       Marks: GUI, 8 Marks: Functionality).
 
 3. The Update View will include the following components (12 Marks: GUI, 12 Marks: Functionality):
 
-- [ ] A Form will allow the user to update any contact details (Name, Contact Number, Email Address,
+- [x] A Form will allow the user to update any contact details (Name, Contact Number, Email Address,
       etc.) (4 Marks: GUI, 4 Marks: Functionality)
 - [ ] The Form will include a Delete Button that will remove the user from the database and return the
       user to the Contact List View (4 Marks: GUI, 4 Marks: Functionality).
-- [ ] The Form will include a Cancel Button that will return the user to the Contact List View (4 Marks:
+- [x] The Form will include a Cancel Button that will return the user to the Contact List View (4 Marks:
       GUI, 4 Marks: Functionality).
 
 4. Include Internal Documentation for your site (5 Marks: Internal Documentation):
