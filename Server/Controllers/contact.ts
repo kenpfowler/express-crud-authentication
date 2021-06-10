@@ -3,7 +3,25 @@ import ContactModel from "../Models/contact.js";
 
 //create and export controller to be used by the contact router
 
-//READ contact information from database
+//display page to ADD a document to the database
+export function DisplayAddPage(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): void {
+  res.render("add", { title: "Add Contact" });
+}
+
+//POST the reqeust to add
+export function AddContact(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): void {
+  ContactModel.create("fsdfsdf", "sdfdsfd", "sfddsf");
+}
+
+//READ a document from database
 export function DisplayBusinessContacts(
   req: Request,
   res: Response,
@@ -20,7 +38,7 @@ export function DisplayBusinessContacts(
   });
 }
 
-//create controller to display an edit page
+//UPDATE a document in the database
 export function DisplayEditPage(
   req: Request,
   res: Response,
