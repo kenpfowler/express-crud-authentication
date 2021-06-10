@@ -5,13 +5,27 @@ const router = express.Router();
 import {
   DisplayBusinessContacts,
   DisplayEditPage,
+  DisplayAddPage,
 } from "../Controllers/contact";
 
-//GET businesscontacts page
+//GET route for displaying the ADD page - CREATE Operation
+router.get("/add", DisplayAddPage);
+
+//POST route fro processing the ADD page - CREATE Operation
+router.post("/add", (req, res, next) => {});
+
+//GET businesscontacts page - READ operation
 router.get("/", DisplayBusinessContacts);
 
 router.get("businesscontacts", DisplayBusinessContacts);
-//Display an interface to edit the DB
+
+//GET route for displaying the edit page - UPDATE Operation
 router.get("/edit/:id", DisplayEditPage);
+
+//POST route for processing the edit page - UPDATE Operation
+router.post("/edit/:id", (req, res, next) => {});
+
+//GET route to perform deletion - DELETE Operation
+router.get("/delete", (req, res, next) => {});
 
 export default router;
