@@ -4,13 +4,19 @@ import express from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
+import cookieSession from "cookie-session";
 
 //database setup
-import mongoose from "mongoose";
+import mongoose, { connection } from "mongoose";
 import { DB } from "./db.js";
 
 //point mongoose to the DB URI
-mongoose.connect(DB.businesscontacts, {
+export const businessContactConnection = mongoose.connect(DB.businesscontacts, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+export const userConnection = mongoose.createConnection(DB.users, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -19,7 +25,11 @@ mongoose.connect(DB.businesscontacts, {
 let mongoDB = mongoose.connection;
 mongoDB.on("error", console.error.bind(console, "Connection Error: ..."));
 mongoDB.once("open", () => {
-  console.log(`Connected to MongoDB at: ${DB.businesscontacts}`);
+  for (const connection of mongoose.connections) {
+    console.log(
+      `Connected to MongoDB at: ${connection.host} and DB: ${connection.name}`
+    );
+  }
 });
 
 //routes for main top level site
@@ -31,8 +41,17 @@ import contactsRouter from "../Routes/contact.js";
 //instantiates an express object
 let app = express();
 
-// view engine setup
+//tell express to trust cookies that are passed through a reverse proxy
+app.set("trust proxy", 1);
+//setup cookie session to persist data across requests for a particular user
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["sdfsdfdsfdsf", "sdsfsdfdsfdsf"],
+  })
+);
 
+// view engine setup
 //shows the express application where to find views (different pages use differnet view templates )
 app.set("views", path.join(__dirname, "../Views"));
 

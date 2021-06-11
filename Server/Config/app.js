@@ -3,25 +3,38 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.userConnection = exports.businessContactConnection = void 0;
 const http_errors_1 = __importDefault(require("http-errors"));
 const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const morgan_1 = __importDefault(require("morgan"));
+const cookie_session_1 = __importDefault(require("cookie-session"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const db_js_1 = require("./db.js");
-mongoose_1.default.connect(db_js_1.DB.businesscontacts, {
+exports.businessContactConnection = mongoose_1.default.connect(db_js_1.DB.businesscontacts, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+exports.userConnection = mongoose_1.default.createConnection(db_js_1.DB.users, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
 let mongoDB = mongoose_1.default.connection;
 mongoDB.on("error", console.error.bind(console, "Connection Error: ..."));
 mongoDB.once("open", () => {
-    console.log(`Connected to MongoDB at: ${db_js_1.DB.businesscontacts}`);
+    for (const connection of mongoose_1.default.connections) {
+        console.log(`Connected to MongoDB at: ${connection.host} and DB: ${connection.name}`);
+    }
 });
 const index_js_1 = __importDefault(require("../Routes/index.js"));
 const contact_js_1 = __importDefault(require("../Routes/contact.js"));
 let app = express_1.default();
+app.set("trust proxy", 1);
+app.use(cookie_session_1.default({
+    name: "session",
+    keys: ["sdfsdfdsfdsf", "sdsfsdfdsfdsf"],
+}));
 app.set("views", path_1.default.join(__dirname, "../Views"));
 app.set("view engine", "ejs");
 app.use(morgan_1.default("dev"));
