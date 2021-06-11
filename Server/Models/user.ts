@@ -1,4 +1,5 @@
 import Mongoose from "mongoose";
+import { userConnection } from "../Config/app";
 
 // Create mongoose schema
 const Schema = Mongoose.Schema;
@@ -6,17 +7,18 @@ const Schema = Mongoose.Schema;
 //configure schema to interface with user collection
 const UserSchema = new Schema(
   {
-    Username: String,
-    Password: String,
-    PhoneNumber: String,
-    Age: Number,
-    Program: String,
+    firstName: String,
+    lastName: String,
+    email: String,
+    userName: String,
+    password: String,
   },
   {
     collection: "users",
+    timestamps: true,
   }
 );
 
-const Model = Mongoose.model("User", UserSchema);
+const UserModel = userConnection.model("User", UserSchema);
 
-export default Model;
+export default UserModel;

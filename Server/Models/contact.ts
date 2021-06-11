@@ -12,6 +12,7 @@ const ContactSchema = new Schema(
   },
   {
     collection: "businesscontacts",
+    timestamps: true,
   }
 );
 

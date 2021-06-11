@@ -11,6 +11,7 @@ const ContactSchema = new Schema({
     email: String,
 }, {
     collection: "businesscontacts",
+    timestamps: true,
 });
 const ContactModel = mongoose_1.default.model("Contacts", ContactSchema);
 exports.default = ContactModel;
