@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express";
+import UserModel from "../Models/user";
 
 //create and export controllers to be used by the index router
 export function DisplayHomePage(
@@ -6,6 +7,12 @@ export function DisplayHomePage(
   res: Response,
   next: NextFunction
 ): void {
+  //store number of sessions in a variable and print to console
+  if (req.session.isNew) {
+    req.session.visitCount = 0;
+  }
+  req.session.visitCount += 1;
+  console.log(`Number of sessions: ${req.session.visitCount}`);
   res.render("index", {
     title: "Home",
     page: "home",
@@ -74,5 +81,29 @@ export function DisplayRegisterPage(
   res.render("index", {
     title: "Register",
     page: "register",
+  });
+}
+
+// POST the CREATED user to the database
+export function RegisterUser(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): void {
+  let newUser = new UserModel({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    userName: req.body.userName,
+    password: req.body.password,
+  });
+
+  UserModel.create(newUser, (err, userModel) => {
+    if (err) {
+      console.error(err);
+      res.end(err);
+    } else {
+      res.redirect("/businesscontacts");
+    }
   });
 }

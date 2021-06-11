@@ -1,7 +1,16 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisplayRegisterPage = exports.DisplayLoginPage = exports.DisplayContactPage = exports.DisplayProjectsPage = exports.DisplayServicesPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
+exports.RegisterUser = exports.DisplayRegisterPage = exports.DisplayLoginPage = exports.DisplayContactPage = exports.DisplayProjectsPage = exports.DisplayServicesPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
+const user_1 = __importDefault(require("../Models/user"));
 function DisplayHomePage(req, res, next) {
+    if (req.session.isNew) {
+        req.session.visitCount = 0;
+    }
+    req.session.visitCount += 1;
+    console.log(`Number of sessions: ${req.session.visitCount}`);
     res.render("index", {
         title: "Home",
         page: "home",
@@ -50,4 +59,23 @@ function DisplayRegisterPage(req, res, next) {
     });
 }
 exports.DisplayRegisterPage = DisplayRegisterPage;
+function RegisterUser(req, res, next) {
+    let newUser = new user_1.default({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        userName: req.body.userName,
+        password: req.body.password,
+    });
+    user_1.default.create(newUser, (err, userModel) => {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        else {
+            res.redirect("/businesscontacts");
+        }
+    });
+}
+exports.RegisterUser = RegisterUser;
 //# sourceMappingURL=index.js.map

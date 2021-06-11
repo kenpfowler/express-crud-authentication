@@ -1,5 +1,6 @@
-import { Request, Response, NextFunction } from "express";
+import { Express, Request, Response, NextFunction } from "express";
 import ContactModel from "../Models/contact.js";
+import { body, validationResult } from "express-validator";
 
 //show page to CREATE new document
 export function DisplayAddPage(
