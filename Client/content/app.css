@@ -70,6 +70,14 @@ body {
   margin: 0 auto;
 }
 
+.nav-link:hover {
+  color: #e60012 !important;
+}
+
+.active {
+  color: #e60012 !important;
+}
+
 /* icon customizations */
 .fa-html5 {
   color: tomato;

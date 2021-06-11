@@ -41,7 +41,7 @@
 
 - [x] A Form will allow the user to update any contact details (Name, Contact Number, Email Address,
       etc.) (4 Marks: GUI, 4 Marks: Functionality)
-- [ ] The Form will include a Delete Button that will remove the user from the database and return the
+- [x] The Form will include a Delete Button that will remove the user from the database and return the
       user to the Contact List View (4 Marks: GUI, 4 Marks: Functionality).
 - [x] The Form will include a Cancel Button that will return the user to the Contact List View (4 Marks:
       GUI, 4 Marks: Functionality).
