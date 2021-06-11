@@ -1,25 +1,26 @@
+<div class="container-fluid">
 <div class="row">
-    <div class="offset-md-3 col-md-6 col-sm-12">
+    <div class="offset-md-3 col-md-6 col-sm-12 g-1">
           <div class="login" id="contentArea">
               <h1 class="display-4">Register</h1>
 
-              <form method="POST" id="registerForm" novalidate>
+              <form method="POST" id="registerForm">
                 <p class="hint-text">Create your own account. It's free and only takes a minute.</p>
                 <div class="form-group">
                   <div class="row">
                     <p class="lead"><i class="fas fa-user-shield"></i> Personal Information</p>
                     <div class="col-md-6">
-                      <input class="form-control" type="text" name="FirstName" id="firstName" placeholder="First Name" required>
+                      <input class="form-control" type="text" name="firstName" id="firstName" placeholder="First Name" required>
                     </div>
                     <div class="col-md-6">
-                      <input class="form-control" type="text" name="LastName" id="lastName" placeholder="Last Name" required>
+                      <input class="form-control" type="text" name="lastName" id="lastName" placeholder="Last Name" required>
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="row">
                     <div class="col-md-12">
-                      <input type="email" class="form-control" id="emailAddress" name="EmailAddress" required
+                      <input type="email" class="form-control" id="email" name="email" required
                       value="" placeholder="Email Address">
                     </div>
                   </div>
@@ -29,7 +30,7 @@
                   <div class="row">
                     <p class="lead"><i class="fas fa-database"></i> System Identification</p>
                     <div class="col-md-12">
-                      <input type="text" class="form-control" id="username" name="username"  required
+                      <input type="text" class="form-control" id="userName" name="userName"  required
                       value="" placeholder="Username">
                     </div>
                   </div>
@@ -61,4 +62,5 @@
             <a href="/login">Sign in</a>
           </p>
     </div>
+</div>
 </div>
