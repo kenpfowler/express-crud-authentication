@@ -65,3 +65,14 @@ export function DisplayLoginPage(
     page: "login",
   });
 }
+
+export function DisplayRegisterPage(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): void {
+  res.render("index", {
+    title: "Register",
+    page: "register",
+  });
+}

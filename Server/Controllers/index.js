@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisplayLoginPage = exports.DisplayContactPage = exports.DisplayProjectsPage = exports.DisplayServicesPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
+exports.DisplayRegisterPage = exports.DisplayLoginPage = exports.DisplayContactPage = exports.DisplayProjectsPage = exports.DisplayServicesPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
 function DisplayHomePage(req, res, next) {
     res.render("index", {
         title: "Home",
@@ -43,4 +43,11 @@ function DisplayLoginPage(req, res, next) {
     });
 }
 exports.DisplayLoginPage = DisplayLoginPage;
+function DisplayRegisterPage(req, res, next) {
+    res.render("index", {
+        title: "Register",
+        page: "register",
+    });
+}
+exports.DisplayRegisterPage = DisplayRegisterPage;
 //# sourceMappingURL=index.js.map

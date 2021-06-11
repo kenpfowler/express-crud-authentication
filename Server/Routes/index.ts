@@ -9,6 +9,7 @@ import {
   DisplayProjectsPage,
   DisplayContactPage,
   DisplayLoginPage,
+  DisplayRegisterPage,
 } from "../Controllers/index.js";
 
 /* GET home page. */
@@ -30,5 +31,7 @@ router.get("/projects", DisplayProjectsPage);
 router.get("/contact", DisplayContactPage);
 
 router.get("/login", DisplayLoginPage);
+
+router.get("/register", DisplayRegisterPage);
 
 export default router;
