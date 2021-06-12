@@ -1,4 +1,6 @@
 import express from "express";
+import { check, validationResult } from "express-validator";
+
 const router = express.Router();
 
 //import index controllers
@@ -38,6 +40,36 @@ router.get("/login", DisplayLoginPage);
 router.get("/register", DisplayRegisterPage);
 
 // POST to registration page
-router.post("/register", RegisterUser);
+router.post(
+  "/register",
+  [
+    check("firstName")
+      .trim()
+      .isLength({ min: 3 })
+      .escape()
+      .withMessage("A first name is required."),
+    check("lastName")
+      .trim()
+      .isLength({ min: 3 })
+      .escape()
+      .withMessage("A last name is required."),
+    check("email")
+      .trim()
+      .isEmail()
+      .normalizeEmail()
+      .withMessage("A valid email address is required."),
+    check("userName")
+      .trim()
+      .isLength({ min: 3 })
+      .escape()
+      .withMessage("A username is required."),
+    check("password")
+      .trim()
+      .escape()
+      .isStrongPassword()
+      .withMessage("Choose a strong password"),
+  ],
+  RegisterUser
+);
 
 export default router;

@@ -1,4 +1,5 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response, NextFunction, request } from "express";
+import { validationResult } from "express-validator";
 import UserModel from "../Models/user";
 
 //create and export controllers to be used by the index router
@@ -78,9 +79,13 @@ export function DisplayRegisterPage(
   res: Response,
   next: NextFunction
 ): void {
+  // const errors = req.session.feedback ? req.session.feedback.errors : false;
+  // req.session.feedback = {};
+
   res.render("index", {
     title: "Register",
     page: "register",
+    // errors: errors,
   });
 }
 
@@ -90,6 +95,14 @@ export function RegisterUser(
   res: Response,
   next: NextFunction
 ): void {
+  // const errors = validationResult(req);
+  // if (!errors.isEmpty()) {
+  //   req.session.feedback = {
+  //     errors: errors.array(),
+  //   };
+  //   res.redirect("/register");
+  // }
+
   let newUser = new UserModel({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
