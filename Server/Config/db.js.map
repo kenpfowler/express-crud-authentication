@@ -1,1 +1,1 @@
-{"version":3,"file":"db.js","sourceRoot":"","sources":["db.ts"],"names":[],"mappings":";;;AAAa,QAAA,EAAE,GAAG;IAChB,KAAK,EAAE,2BAA2B;IAClC,gBAAgB,EAAE,sCAAsC;CACzD,CAAC"}
+{"version":3,"file":"db.js","sourceRoot":"","sources":["db.ts"],"names":[],"mappings":";;;AAAa,QAAA,EAAE,GAAG;IAChB,KAAK,EAAE,2BAA2B;IAClC,gBAAgB,EAAE,sCAAsC;IACxD,MAAM,EAAE,SAAS;CAClB,CAAC"}

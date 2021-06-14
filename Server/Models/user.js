@@ -4,18 +4,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
-const app_1 = require("../Config/app");
+const passport_local_mongoose_1 = __importDefault(require("passport-local-mongoose"));
 const Schema = mongoose_1.default.Schema;
 const UserSchema = new Schema({
     firstName: String,
     lastName: String,
     email: String,
     userName: String,
-    password: String,
 }, {
     collection: "users",
     timestamps: true,
 });
-const UserModel = app_1.userConnection.model("User", UserSchema);
+UserSchema.plugin(passport_local_mongoose_1.default);
+const UserModel = mongoose_1.default.model("User", UserSchema);
 exports.default = UserModel;
 //# sourceMappingURL=user.js.map

@@ -1,5 +1,6 @@
-import Mongoose from "mongoose";
+import Mongoose, { PassportLocalSchema } from "mongoose";
 import { userConnection } from "../Config/app";
+import passportLocalMongoose from "passport-local-mongoose";
 
 // Create mongoose schema
 const Schema = Mongoose.Schema;
@@ -11,7 +12,6 @@ const UserSchema = new Schema(
     lastName: String,
     email: String,
     userName: String,
-    password: String,
   },
   {
     collection: "users",
@@ -19,6 +19,17 @@ const UserSchema = new Schema(
   }
 );
 
-const UserModel = userConnection.model("User", UserSchema);
+UserSchema.plugin(passportLocalMongoose);
 
+const UserModel = Mongoose.model("User", UserSchema as PassportLocalSchema);
+
+declare global {
+  export type UserDocument = Mongoose.Document & {
+    _id: String;
+    firstName: String;
+    lastName: String;
+    email: String;
+    userName: String;
+  };
+}
 export default UserModel;

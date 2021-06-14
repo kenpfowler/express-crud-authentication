@@ -10,8 +10,15 @@ import session from "express-session";
 import passport from "passport";
 import passportLocal from "passport-local";
 
+//modules for cors
+import cors from "cors";
+
 //authentication objects
 let localStrategy = passportLocal.Strategy; // alias
+import User from "../Models/user.js";
+
+//module for auth messageing and error management
+import flash from "connect-flash";
 
 //database setup
 import mongoose, { connection } from "mongoose";
@@ -65,6 +72,28 @@ app.use(cookieParser());
 //this static route allows us to reference content generally without having to create a specific route
 app.use(express.static(path.join(__dirname, "../../Client")));
 app.use(express.static(path.join(__dirname, "../../node_modules")));
+
+//add support for cors
+app.use(cors());
+
+//setup express session
+app.use(
+  session({ secret: DB.Secret, saveUninitialized: false, resave: false })
+);
+
+//initialze flash
+app.use(flash());
+
+//initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+//impliment an auth strategy
+passport.use(User.createStrategy());
+
+//serialize and deserialze user
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.use("/", indexRouter);
 
