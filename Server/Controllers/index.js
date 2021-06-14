@@ -6,11 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RegisterUser = exports.DisplayRegisterPage = exports.DisplayLoginPage = exports.DisplayContactPage = exports.DisplayProjectsPage = exports.DisplayServicesPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
 const user_1 = __importDefault(require("../Models/user"));
 function DisplayHomePage(req, res, next) {
-    if (req.session.isNew) {
-        req.session.visitCount = 0;
-    }
-    req.session.visitCount += 1;
-    console.log(`Number of sessions: ${req.session.visitCount}`);
     res.render("index", {
         title: "Home",
         page: "home",

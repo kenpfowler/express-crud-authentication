@@ -4,7 +4,14 @@ import express from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
-import cookieSession from "cookie-session";
+
+//modules for authentication
+import session from "express-session";
+import passport from "passport";
+import passportLocal from "passport-local";
+
+//authentication objects
+let localStrategy = passportLocal.Strategy; // alias
 
 //database setup
 import mongoose, { connection } from "mongoose";
@@ -40,16 +47,6 @@ import contactsRouter from "../Routes/contact.js";
 
 //instantiates an express object
 let app = express();
-
-//tell express to trust cookies that are passed through a reverse proxy
-app.set("trust proxy", 1);
-//setup cookie session to persist data across requests for a particular user
-app.use(
-  cookieSession({
-    name: "session",
-    keys: ["sdfsdfdsfdsf", "sdsfsdfdsfdsf"],
-  })
-);
 
 // view engine setup
 //shows the express application where to find views (different pages use differnet view templates )

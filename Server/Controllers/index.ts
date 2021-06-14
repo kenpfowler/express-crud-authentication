@@ -8,12 +8,6 @@ export function DisplayHomePage(
   res: Response,
   next: NextFunction
 ): void {
-  //store number of sessions in a variable and print to console
-  if (req.session.isNew) {
-    req.session.visitCount = 0;
-  }
-  req.session.visitCount += 1;
-  console.log(`Number of sessions: ${req.session.visitCount}`);
   res.render("index", {
     title: "Home",
     page: "home",

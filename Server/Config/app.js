@@ -9,7 +9,8 @@ const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const morgan_1 = __importDefault(require("morgan"));
-const cookie_session_1 = __importDefault(require("cookie-session"));
+const passport_local_1 = __importDefault(require("passport-local"));
+let localStrategy = passport_local_1.default.Strategy;
 const mongoose_1 = __importDefault(require("mongoose"));
 const db_js_1 = require("./db.js");
 exports.businessContactConnection = mongoose_1.default.connect(db_js_1.DB.businesscontacts, {
@@ -30,11 +31,6 @@ mongoDB.once("open", () => {
 const index_js_1 = __importDefault(require("../Routes/index.js"));
 const contact_js_1 = __importDefault(require("../Routes/contact.js"));
 let app = express_1.default();
-app.set("trust proxy", 1);
-app.use(cookie_session_1.default({
-    name: "session",
-    keys: ["sdfsdfdsfdsf", "sdsfsdfdsfdsf"],
-}));
 app.set("views", path_1.default.join(__dirname, "../Views"));
 app.set("view engine", "ejs");
 app.use(morgan_1.default("dev"));
