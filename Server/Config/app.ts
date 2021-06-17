@@ -9,6 +9,7 @@ import logger from "morgan";
 import session from "express-session";
 import passport from "passport";
 import passportLocal from "passport-local";
+import { UserDisplayName } from "../Util/index.js";
 
 //modules for cors
 import cors from "cors";
@@ -17,27 +18,27 @@ import cors from "cors";
 let localStrategy = passportLocal.Strategy; // alias
 import User from "../Models/user.js";
 
-//module for auth messageing and error management
+//module for auth messaging and error management
 import flash from "connect-flash";
 
 //database setup
-import mongoose, { connection } from "mongoose";
+import mongoose from "mongoose";
 import { DB } from "./db.js";
 
-//point mongoose to the DB URI
-export const businessContactConnection = mongoose.connect(DB.businesscontacts, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// point mongoose to the DB URI
+// export const ContactConnection = mongoose.createConnection(DB.remoteURI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 
-export const userConnection = mongoose.createConnection(DB.users, {
+mongoose.connect(DB.remoteURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
 //display console messages to identify connection
 let mongoDB = mongoose.connection;
-mongoDB.on("error", console.error.bind(console, "Connection Error: ..."));
+mongoDB.on("error", console.error.bind(console, "Connection Error: :( "));
 mongoDB.once("open", () => {
   for (const connection of mongoose.connections) {
     console.log(
@@ -92,6 +93,7 @@ app.use(passport.session());
 passport.use(User.createStrategy());
 
 //serialize and deserialze user
+//This is like encrypting and decrypting user data
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
@@ -122,7 +124,7 @@ app.use(function (
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error", { title: "Error" });
+  res.render("error", { title: "Error", username: UserDisplayName(req) });
 });
 
 //defaults the express application and all its configurations
