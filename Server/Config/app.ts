@@ -11,14 +11,14 @@ import passport from "passport";
 import passportLocal from "passport-local";
 import { UserDisplayName } from "../Util/index.js";
 
-//modules for cors
+//modules for cors (Cross-Origin Resource Sharing)
 import cors from "cors";
 
 //authentication objects
 let localStrategy = passportLocal.Strategy; // alias
 import User from "../Models/user.js";
 
-//module for auth messaging and error management
+//module for auth messaging and error management. Enables messages to persist during a redirect
 import flash from "connect-flash";
 
 //database setup
@@ -26,19 +26,15 @@ import mongoose from "mongoose";
 import { DB } from "./db.js";
 
 // point mongoose to the DB URI
-// export const ContactConnection = mongoose.createConnection(DB.remoteURI, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
-
 mongoose.connect(DB.remoteURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
 //display console messages to identify connection
-let mongoDB = mongoose.connection;
+let mongoDB = mongoose.connection; //alias
 mongoDB.on("error", console.error.bind(console, "Connection Error: :( "));
+//loop over connections and print host and database name
 mongoDB.once("open", () => {
   for (const connection of mongoose.connections) {
     console.log(

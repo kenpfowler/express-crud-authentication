@@ -1,8 +1,7 @@
-import { Express, Request, Response, NextFunction } from "express";
+import { Request, Response, NextFunction } from "express";
 import ContactModel from "../Models/contact.js";
-import passport from "passport";
 
-//import utility functions
+//import utility functions to bring logged in users username to each page
 import { UserDisplayName } from "../Util/index.js";
 
 //show page to CREATE new document
@@ -20,12 +19,13 @@ export function AddContact(
   res: Response,
   next: NextFunction
 ): void {
+  //create new contact
   let newContact = new ContactModel({
     name: req.body.name,
     phone: req.body.phone,
     email: req.body.email,
   });
-
+  //use mongoose to create in the database then redirect user
   ContactModel.create(newContact, (err, ContactModel) => {
     if (err) {
       console.error(err);
@@ -36,16 +36,18 @@ export function AddContact(
   });
 }
 
-//READ a document from database
+//READ a collection from database
 export function DisplayBusinessContacts(
   req: Request,
   res: Response,
   next: NextFunction
 ): void {
+  //find everything in collection contactmodel is pointed to and sort in alphabetical order
   ContactModel.find({}, {}, { sort: { name: 1 } }, (err, businesscontacts) => {
     if (err) {
       console.error(err);
     }
+    //render page with the vaiables found
     res.render("businesscontacts", {
       title: "Contacts",
       businesscontacts: businesscontacts,
@@ -54,7 +56,7 @@ export function DisplayBusinessContacts(
   });
 }
 
-//UPDATE a document in the database
+//READ a document in the database that is to be UPDATED
 export function DisplayEditPage(
   req: Request,
   res: Response,
@@ -78,6 +80,7 @@ export function DisplayEditPage(
   });
 }
 
+//UPDATE a specific document in the database
 export function EditContact(
   req: Request,
   res: Response,

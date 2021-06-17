@@ -65,11 +65,13 @@ export function DisplayContactPage(
   });
 }
 
+//DISPLAY login page
 export function DisplayLoginPage(
   req: Request,
   res: Response,
   next: NextFunction
 ): void {
+  //If the request doesnt have a user property display the login page
   if (!req.user) {
     return res.render("index", {
       title: "Login",
@@ -78,9 +80,11 @@ export function DisplayLoginPage(
       username: UserDisplayName(req),
     });
   }
+  //else redirect to the contacts page secure area
   return res.redirect("/businesscontacts");
 }
 
+//LOG IN the user
 export function ProcessLoginPage(
   req: Request,
   res: Response,
@@ -88,9 +92,11 @@ export function ProcessLoginPage(
 ): void {
   //call the passport authenticate function.
   passport.authenticate("local", function (err, user, info) {
+    //If theres an error then go to the next function
     if (err) {
       return next(err);
     }
+    //if there's an error with the login credientials inform the user and redirect to the login page
     if (!user) {
       req.flash("loginMessage", "Wrong Username and/or Password");
       return res.redirect("/login");
@@ -99,18 +105,19 @@ export function ProcessLoginPage(
       if (err) {
         return next(err);
       }
+      //else grant the user entry to contacts page
       return res.redirect("/businesscontacts");
     });
   })(req, res, next);
 }
 
+//DISPLAY the registration page to the user
 export function DisplayRegisterPage(
   req: Request,
   res: Response,
   next: NextFunction
 ): void {
-  // const errors = req.session.feedback ? req.session.feedback.errors : false;
-  // req.session.feedback = {};
+  //If the user is not logged in then display the registration page
   if (!req.user) {
     return res.render("index", {
       title: "Register",
@@ -119,6 +126,7 @@ export function DisplayRegisterPage(
       username: UserDisplayName(req),
     });
   }
+  //else redirect them to the contacts page
   return res.redirect("/businesscontacts");
 }
 
@@ -128,14 +136,14 @@ export function ProcessRegisterPage(
   res: Response,
   next: NextFunction
 ): void {
-  //create new user object using mongoose model
+  //create new user object using mongoose model and infomation in the request body
   let newUser = new UserModel({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
     username: req.body.username,
   });
-  //user our passport-local-mongoose plugin to create a hashed password
+  //use our passport-local-mongoose plugin and mongoose model to create a hashed password
   UserModel.register(newUser, req.body.password, (err) => {
     //handle registration errors
     if (err) {

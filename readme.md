@@ -8,23 +8,23 @@
 
 ##### Overview: Using the Portfolio Web Site you developed in Assignment 1, restructure the web site to include a secure section of you site that displays a list of contacts. Instructions : This Secure Area must include the following components
 
-- [ ] a user Login View
-- [ ] a Business Contacts List
-- [ ] View and an Update View.
+- [x] a user Login View
+- [x] a Business Contacts List
+- [x] View and an Update View.
 
 1. In addition to your site’s main Nav Bar and page template components, your Login View should include
    the following components (4 Marks: GUI, 25 Marks: Functionality):
 
 - [x] A Form that includes a username field, a password field and a Login Button. (4 Marks: GUI, 4
       Marks: Functionality).
-- [ ] The application database will contain a user collection. The single document in the collection will
+- [x] The application database will contain a user collection. The single document in the collection will
       include your username, password, email address and other relevant information. The username
       and password credentials will be used for authentication. No Registration form is required. (5
       Marks: Functionality).
-- [ ] If the user is authenticated, he will be taken to the Business Contacts List View, otherwise he will
+- [x] If the user is authenticated, he will be taken to the Business Contacts List View, otherwise he will
       be redirected back to the Login View if his username and/or password is incorrect (8 Marks:
       Functionality).
-- [ ] If a user attempts to access the secure area of your site, they should be redirected back to the
+- [x] If a user attempts to access the secure area of your site, they should be redirected back to the
       Login View (8 Marks: Functionality).
 
 2. Your Business Contacts List View should include the following components (8 Marks: GUI, 16 Marks:
@@ -48,11 +48,11 @@
 
 4. Include Internal Documentation for your site (5 Marks: Internal Documentation):
 
-- [ ] Ensure you include a comment header for your CSS and JavaScript files that indicate: the File
+- [x] Ensure you include a comment header for your CSS and JavaScript files that indicate: the File
       name, Student’s Name, StudentID, and Date, (2 Marks: Internal Documentation).
 - [ ] Ensure you include a section header for all of your HTML structure, CSS style sections, and any
       JavaScript functions (1 Marks: Internal Documentation)
-- [ ] Ensure all your code uses contextual variable names that help make the files human-readable (1
+- [x] Ensure all your code uses contextual variable names that help make the files human-readable (1
       Marks: Internal Documentation).
 - [ ] Ensure you include inline comments that describe your GUI Design and Functionality. Note: Please
       avoid “over-commenting” (1 Marks: Internal Documentation)
@@ -60,10 +60,10 @@
 5. Share your files on GitHub to demonstrate Version Control Best Practices and push your site to a cloud host
    (4 Marks: Version Control, 4 Marks: Cloud Hosting).
 
-- [ ] Your repository must include your code and be well structured (2 Marks: Version Control).
-- [ ] Your repository must include commits that demonstrate the project being updated at different
+- [x] Your repository must include your code and be well structured (2 Marks: Version Control).
+- [x] Your repository must include commits that demonstrate the project being updated at different
       stages of development – each time a major change is implemented (2 Marks: Version Control).
-- [ ] You must deploy your site to your Cloud Server using git (4 Marks: Cloud Hosting).
+- [x] You must deploy your site to your Cloud Server using git (4 Marks: Cloud Hosting).
 
 6. Create a Short Video presentation on YouTube or another streaming provider. You must include a short
    PowerPoint (or Google Slides) Slide Deck that includes a single slide to start your video (10 Marks: Video)

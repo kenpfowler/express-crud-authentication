@@ -5,6 +5,7 @@ StudentID: 301155972
 Date: 2021/05/27 
  */
 
+//add event listeners to any delete button on a page
 (function () {
   function Start() {
     console.log("Application started!");
@@ -23,6 +24,7 @@ Date: 2021/05/27
   window.addEventListener("load", Start);
 })();
 
+//hide stickynav bar at bottom of page
 window.onscroll = function () {
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
     (<HTMLElement>document.querySelector(".fixed-bottom")).style.display =

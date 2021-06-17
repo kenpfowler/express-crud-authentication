@@ -18,10 +18,13 @@ const UserSchema = new Schema(
   }
 );
 
+//add passports local strategy functionality to the UserSchema
 UserSchema.plugin(passportLocalMongoose);
 
+//cast UserSchema as PassportLocalSchema
 const UserModel = Mongoose.model("User", UserSchema as PassportLocalSchema);
 
+//declare a custom data type in the global namespace
 declare global {
   export type UserDocument = Mongoose.Document & {
     _id: String;

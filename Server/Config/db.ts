@@ -1,3 +1,4 @@
+//create a variable to store database information
 export const DB = {
   localURI: "mongodb://localhost/businesscontacts",
   remoteURI:

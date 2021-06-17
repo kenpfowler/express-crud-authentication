@@ -1,6 +1,6 @@
-import { Express, Request, Response, NextFunction } from "express";
-import { DB } from "../Config/db.js";
+import { Request, Response, NextFunction } from "express";
 
+//function to make username available to any page if user is logged in
 export function UserDisplayName(req: Request): string {
   if (req.user) {
     let user = req.user as UserDocument;
@@ -9,6 +9,7 @@ export function UserDisplayName(req: Request): string {
   return "";
 }
 
+//function to keep users out of unauthorized areas of the site
 export function AuthGaurd(
   req: Request,
   res: Response,

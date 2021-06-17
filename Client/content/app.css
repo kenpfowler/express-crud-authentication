@@ -115,6 +115,7 @@ body {
   justify-content: center;
 }
 
+/* form styling */
 .input-group-addon:first-child {
   border-right: 0;
 }

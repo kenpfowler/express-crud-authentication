@@ -11,6 +11,7 @@ import {
   DeleteContact,
 } from "../Controllers/contact";
 
+//Import AuthGaurd to prevent users from accessing restricted areas of the application
 import { AuthGaurd } from "../Util/index.js";
 
 //GET route for displaying the ADD page - CREATE Operation
@@ -21,7 +22,6 @@ router.post("/add", AuthGaurd, AddContact);
 
 //GET businesscontacts page - READ operation
 router.get("/", AuthGaurd, DisplayBusinessContacts);
-
 router.get("/businesscontacts", AuthGaurd, DisplayBusinessContacts);
 
 //GET route for displaying the edit page - UPDATE Operation
