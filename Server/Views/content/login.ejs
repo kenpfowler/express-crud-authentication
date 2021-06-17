@@ -1,39 +1,50 @@
-<div class="container d-flex justify-content-center align-items-center">
-  <div class="card mb-3 p-4" style="max-width: 540px">
-    <div class="row g-0">
-      <div class="col-md-7">
-        <div class="card-body">
-          <h5 class="card-title">Sign in to collaborate:</h5>
-          <p class="card-text">
-            The contact information for members is located past the login. Sign
-            up to gain access!
-          </p>
-          <p class="text-muted small">
+<div class="container-fluid">
+<div class="row">
+    <div class="offset-md-3 col-md-6 col-sm-12">
+          <div class="login" id="contentArea">
+              <h1 class="display-4">Login</h1>
+
+              <!-- message area -->
+              <% if(messages.length > 0) { %>
+              <div id="messageArea" class="alert alert-danger">
+                <%= messages %>
+              </div>
+              <% } %>
+
+              <form id="loginForm" novalidate method="POST">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-user">
+                      </i>
+                    </span>
+                    <input type="text" class="form-control" id="username" name="username"  required
+                    value="" placeholder="Enter your username">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="fa fa-lock">
+                      </i>
+                    </span>
+                    <input type="password" class="form-control" id="password" name="password"  required
+                    value="" placeholder="Enter your password">
+                  </div>
+                 
+                </div>                                        
+                <div class="text-end mt-2">
+                  <button id="loginButton" type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Login</button>
+                  <button id="cancelButton" type="reset" class="btn btn-warning"><i class="fas fa-undo"></i> Cancel</button>
+                </div>
+              </form>
+             
+          </div>
+          <p class="text-center text-muted small">
             Don't have an account? 
             <a href="/register">Register Here!</a>
           </p>
-
-        </div>
-      </div>
-      <div class="col-md-5">
-        <form action="/login" method="post">
-          <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input
-              type="text"
-              name="username"
-              class="form-control"
-              id="username"
-              aria-describedby="username"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="password-input" class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" id="password-input" />
-          </div>
-          <button type="submit" class="btn btn-primary">Log In</button>
-        </form>
-      </div>
     </div>
-  </div>
+</div>
 </div>

@@ -1,6 +1,7 @@
 <%- include partials/header.ejs %> 
 <%- include partials/main_nav.ejs %>
 
+<div class="container-fluid">
 <div class="row justify-content-lg-center g-3">
   <h1 class="text-center"><%= title %></h1>
   <form method="POST" class="col-lg-6 col-md-10 col-sm-10">
@@ -63,6 +64,7 @@
     <a href=<%= "/businesscontacts/delete/" + item._id %>><button type="button" class="btn btn-danger align-left"><i class="far fa-trash-alt"></i> Delete</button></a>
     </div>
   </form>
+</div>
 </div>
 
 <%- include partials/bottom_nav.ejs %> 
