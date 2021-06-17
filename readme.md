@@ -84,6 +84,6 @@
 
 #### Your submission should include:
 
-- [ ] A zip archive of your website’s Project files
-- [ ] A link to GitHub
-- [ ] A link to your live site on a Cloud Host (or other hosting service)
+- [x] A zip archive of your website’s Project files
+- [x] A link to GitHub
+- [x] A link to your live site on a Cloud Host (or other hosting service)
