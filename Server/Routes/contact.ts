@@ -11,24 +11,26 @@ import {
   DeleteContact,
 } from "../Controllers/contact";
 
+import { AuthGaurd } from "../Util/index.js";
+
 //GET route for displaying the ADD page - CREATE Operation
-router.get("/add", DisplayAddPage);
+router.get("/add", AuthGaurd, DisplayAddPage);
 
 //POST route fro processing the ADD page - CREATE Operation
-router.post("/add", AddContact);
+router.post("/add", AuthGaurd, AddContact);
 
 //GET businesscontacts page - READ operation
-router.get("/", DisplayBusinessContacts);
+router.get("/", AuthGaurd, DisplayBusinessContacts);
 
-router.get("businesscontacts", DisplayBusinessContacts);
+router.get("/businesscontacts", AuthGaurd, DisplayBusinessContacts);
 
 //GET route for displaying the edit page - UPDATE Operation
-router.get("/edit/:id", DisplayEditPage);
+router.get("/edit/:id", AuthGaurd, DisplayEditPage);
 
 //POST route for processing the edit page - UPDATE Operation
-router.post("/edit/:id", EditContact);
+router.post("/edit/:id", AuthGaurd, EditContact);
 
 //GET route to perform deletion - DELETE Operation
-router.get("/delete/:id", DeleteContact);
+router.get("/delete/:id", AuthGaurd, DeleteContact);
 
 export default router;
