@@ -143,10 +143,11 @@ export function ProcessRegisterPage(
   let errors = validationResult(req);
 
   if (!errors.isEmpty()) {
-    let errorString = errors.array().map((validationResultObject) => {
+    let errorStringArray = errors.array().map((validationResultObject) => {
       return validationResultObject.msg;
     });
-    req.flash("registerMessage", errorString);
+    console.error({ ExpressValidatorError: errorStringArray });
+    req.flash("registerMessage", errorStringArray);
     return res.redirect("/register");
   }
 
@@ -161,7 +162,7 @@ export function ProcessRegisterPage(
   UserModel.register(newUser, req.body.password, (err) => {
     //handle registration errors
     if (err) {
-      console.error(err);
+      console.error({ MongooseModelError: err });
       //display error to user and redirect to register page
       req.flash("registerMessage", "Registration Error");
       return res.redirect("/register");

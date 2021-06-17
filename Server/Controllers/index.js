@@ -93,10 +93,11 @@ exports.DisplayRegisterPage = DisplayRegisterPage;
 function ProcessRegisterPage(req, res, next) {
     let errors = express_validator_1.validationResult(req);
     if (!errors.isEmpty()) {
-        let errorString = errors.array().map((validationResultObject) => {
+        let errorStringArray = errors.array().map((validationResultObject) => {
             return validationResultObject.msg;
         });
-        req.flash("registerMessage", errorString);
+        console.error({ ExpressValidatorError: errorStringArray });
+        req.flash("registerMessage", errorStringArray);
         return res.redirect("/register");
     }
     let newUser = new user_1.default({
@@ -107,7 +108,7 @@ function ProcessRegisterPage(req, res, next) {
     });
     user_1.default.register(newUser, req.body.password, (err) => {
         if (err) {
-            console.error(err);
+            console.error({ MongooseModelError: err });
             req.flash("registerMessage", "Registration Error");
             return res.redirect("/register");
         }
