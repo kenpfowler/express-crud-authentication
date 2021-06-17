@@ -7,7 +7,13 @@
 
               <% if(messages.length > 0) { %>
                 <div id="messageArea" class="alert alert-danger">
-                  <%= messages %>
+                <ul>
+                  <% messages.forEach(message => { %>
+                  <li>
+                    <%= message %>
+                  </li>
+                  <% }); %>
+                  </ul>
                 </div>
               <% } %>
               <!-- contact form-->

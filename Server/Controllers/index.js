@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProcessLogoutPage = exports.ProcessRegisterPage = exports.DisplayRegisterPage = exports.ProcessLoginPage = exports.DisplayLoginPage = exports.DisplayContactPage = exports.DisplayProjectsPage = exports.DisplayServicesPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
 const user_1 = __importDefault(require("../Models/user"));
 const passport_1 = __importDefault(require("passport"));
+const express_validator_1 = require("express-validator");
 const Util_1 = require("../Util");
 function DisplayHomePage(req, res, next) {
     res.render("index", {
@@ -90,6 +91,14 @@ function DisplayRegisterPage(req, res, next) {
 }
 exports.DisplayRegisterPage = DisplayRegisterPage;
 function ProcessRegisterPage(req, res, next) {
+    let errors = express_validator_1.validationResult(req);
+    if (!errors.isEmpty()) {
+        let errorString = errors.array().map((validationResultObject) => {
+            return validationResultObject.msg;
+        });
+        req.flash("registerMessage", errorString);
+        return res.redirect("/register");
+    }
     let newUser = new user_1.default({
         firstName: req.body.firstName,
         lastName: req.body.lastName,

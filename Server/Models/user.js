@@ -7,10 +7,34 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const passport_local_mongoose_1 = __importDefault(require("passport-local-mongoose"));
 const Schema = mongoose_1.default.Schema;
 const UserSchema = new Schema({
-    firstName: String,
-    lastName: String,
-    email: String,
-    username: String,
+    firstName: {
+        type: String,
+        trim: true,
+        required: true,
+        minlength: 2,
+        maxlength: 20,
+    },
+    lastName: {
+        type: String,
+        trim: true,
+        required: true,
+        minlength: 2,
+        maxlength: 20,
+    },
+    email: {
+        type: String,
+        trim: true,
+        required: true,
+        minlength: 2,
+        maxlength: 20,
+    },
+    username: {
+        type: String,
+        trim: true,
+        required: true,
+        minlength: 2,
+        maxlength: 20,
+    },
 }, {
     collection: "users",
     timestamps: true,

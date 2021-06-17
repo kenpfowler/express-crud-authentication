@@ -7,10 +7,34 @@ const Schema = Mongoose.Schema;
 //configure schema to interface with user collection
 const UserSchema = new Schema(
   {
-    firstName: String,
-    lastName: String,
-    email: String,
-    username: String,
+    firstName: {
+      type: String,
+      trim: true,
+      required: true,
+      minlength: 2,
+      maxlength: 20,
+    },
+    lastName: {
+      type: String,
+      trim: true,
+      required: true,
+      minlength: 2,
+      maxlength: 20,
+    },
+    email: {
+      type: String,
+      trim: true,
+      required: true,
+      minlength: 2,
+      maxlength: 20,
+    },
+    username: {
+      type: String,
+      trim: true,
+      required: true,
+      minlength: 2,
+      maxlength: 20,
+    },
   },
   {
     collection: "users",
