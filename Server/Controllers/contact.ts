@@ -1,6 +1,9 @@
 import { Express, Request, Response, NextFunction } from "express";
 import ContactModel from "../Models/contact.js";
-import { body, validationResult } from "express-validator";
+import passport from "passport";
+
+//import utility functions
+import { UserDisplayName } from "../Util/index.js";
 
 //show page to CREATE new document
 export function DisplayAddPage(
@@ -8,7 +11,7 @@ export function DisplayAddPage(
   res: Response,
   next: NextFunction
 ): void {
-  res.render("add", { title: "Add Contact" });
+  res.render("add", { title: "Add Contact", username: UserDisplayName(req) });
 }
 
 //POST the CREATED document to the database
@@ -46,6 +49,7 @@ export function DisplayBusinessContacts(
     res.render("businesscontacts", {
       title: "Contacts",
       businesscontacts: businesscontacts,
+      username: UserDisplayName(req),
     });
   });
 }
@@ -66,7 +70,11 @@ export function DisplayEditPage(
       console.error(err);
       res.end(err);
     }
-    res.render("edit", { title: "Edit List", item: businessContactToEdit });
+    res.render("edit", {
+      title: "Edit List",
+      item: businessContactToEdit,
+      username: UserDisplayName(req),
+    });
   });
 }
 

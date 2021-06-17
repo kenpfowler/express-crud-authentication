@@ -5,8 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DeleteContact = exports.EditContact = exports.DisplayEditPage = exports.DisplayBusinessContacts = exports.AddContact = exports.DisplayAddPage = void 0;
 const contact_js_1 = __importDefault(require("../Models/contact.js"));
+const index_js_1 = require("../Util/index.js");
 function DisplayAddPage(req, res, next) {
-    res.render("add", { title: "Add Contact" });
+    res.render("add", { title: "Add Contact", username: index_js_1.UserDisplayName(req) });
 }
 exports.DisplayAddPage = DisplayAddPage;
 function AddContact(req, res, next) {
@@ -34,6 +35,7 @@ function DisplayBusinessContacts(req, res, next) {
         res.render("businesscontacts", {
             title: "Contacts",
             businesscontacts: businesscontacts,
+            username: index_js_1.UserDisplayName(req),
         });
     });
 }
@@ -45,7 +47,11 @@ function DisplayEditPage(req, res, next) {
             console.error(err);
             res.end(err);
         }
-        res.render("edit", { title: "Edit List", item: businessContactToEdit });
+        res.render("edit", {
+            title: "Edit List",
+            item: businessContactToEdit,
+            username: index_js_1.UserDisplayName(req),
+        });
     });
 }
 exports.DisplayEditPage = DisplayEditPage;
