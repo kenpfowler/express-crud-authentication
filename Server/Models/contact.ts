@@ -11,7 +11,7 @@ const ContactSchema = new Schema(
     email: String,
   },
   {
-    collection: "businesscontacts",
+    collection: "contacts",
     timestamps: true,
   }
 );

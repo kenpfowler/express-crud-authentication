@@ -10,7 +10,7 @@ const ContactSchema = new Schema({
     phone: String,
     email: String,
 }, {
-    collection: "businesscontacts",
+    collection: "contacts",
     timestamps: true,
 });
 const ContactModel = mongoose_1.default.model("Contacts", ContactSchema);

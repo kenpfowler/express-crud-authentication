@@ -10,7 +10,7 @@ const UserSchema = new Schema({
     firstName: String,
     lastName: String,
     email: String,
-    userName: String,
+    username: String,
 }, {
     collection: "users",
     timestamps: true,

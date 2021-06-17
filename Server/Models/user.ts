@@ -1,5 +1,4 @@
 import Mongoose, { PassportLocalSchema } from "mongoose";
-import { userConnection } from "../Config/app";
 import passportLocalMongoose from "passport-local-mongoose";
 
 // Create mongoose schema
@@ -11,7 +10,7 @@ const UserSchema = new Schema(
     firstName: String,
     lastName: String,
     email: String,
-    userName: String,
+    username: String,
   },
   {
     collection: "users",
@@ -29,7 +28,7 @@ declare global {
     firstName: String;
     lastName: String;
     email: String;
-    userName: String;
+    username: String;
   };
 }
 export default UserModel;
