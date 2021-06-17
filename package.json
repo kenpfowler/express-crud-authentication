@@ -19,7 +19,6 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "express-session": "^1.17.2",
-    "express-validator": "^6.11.1",
     "http-errors": "~1.6.3",
     "jquery": "^3.6.0",
     "mongoose": "^5.12.13",
