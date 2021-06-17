@@ -70,18 +70,23 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../../Client")));
 app.use(express.static(path.join(__dirname, "../../node_modules")));
 
-//add support for cors
+//add support for cors (Cross-Origin Resource Sharing)
 app.use(cors());
 
 //setup express session
+//gives the ability to persist data across multiple http requests
+//uses a cookie and a server session. Cookie identifies user and the session data is accessed from the server for that user.
 app.use(
   session({ secret: DB.Secret, saveUninitialized: false, resave: false })
 );
 
 //initialze flash
+// The flash is a special area of the session used for storing messages.
+// Messages are written to the flash and cleared after being displayed to the user.
+//The flash is typically used in combination with redirects, ensuring that the message is available to the next page that is to be rendered.
 app.use(flash());
 
-//initialize passport
+//initialize passport.  This middleware allows you to authenticate a user.
 app.use(passport.initialize());
 app.use(passport.session());
 

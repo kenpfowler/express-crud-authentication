@@ -50,11 +50,11 @@
 
 - [x] Ensure you include a comment header for your CSS and JavaScript files that indicate: the File
       name, Student’s Name, StudentID, and Date, (2 Marks: Internal Documentation).
-- [ ] Ensure you include a section header for all of your HTML structure, CSS style sections, and any
+- [x] Ensure you include a section header for all of your HTML structure, CSS style sections, and any
       JavaScript functions (1 Marks: Internal Documentation)
 - [x] Ensure all your code uses contextual variable names that help make the files human-readable (1
       Marks: Internal Documentation).
-- [ ] Ensure you include inline comments that describe your GUI Design and Functionality. Note: Please
+- [x] Ensure you include inline comments that describe your GUI Design and Functionality. Note: Please
       avoid “over-commenting” (1 Marks: Internal Documentation)
 
 5. Share your files on GitHub to demonstrate Version Control Best Practices and push your site to a cloud host
