@@ -4,7 +4,20 @@
 <div class="container-fluid">
 <div class="row justify-content-lg-center g-3">
   <h1 class="text-center"><%= title %></h1>
-  <form method="POST" class="col-lg-6 col-md-10 col-sm-10">
+
+  <form method="POST" novalidate class="col-lg-6 col-md-10 col-sm-10">
+    <!-- display alert messages -->
+    <% if(messages.length > 0) { %>
+    <div id="messageArea" class="alert alert-danger">
+      <ul>
+      <% messages.forEach(message => { %>
+        <li>
+        <%= message %>
+        </li>
+      <% }); %>
+      </ul>
+    </div>
+   <% } %>
     <div class="input-group mb-3">
       <span class="input-group-text" id="name">Name</span>
       <input

@@ -4,13 +4,20 @@ import ContactModel from "../Models/contact.js";
 //import utility functions to bring logged in users username to each page
 import { UserDisplayName } from "../Util/index.js";
 
+//import validation functions
+import { validationResult } from "express-validator";
+
 //show page to CREATE new document
 export function DisplayAddPage(
   req: Request,
   res: Response,
   next: NextFunction
 ): void {
-  res.render("add", { title: "Add Contact", username: UserDisplayName(req) });
+  res.render("add", {
+    title: "Add Contact",
+    username: UserDisplayName(req),
+    messages: req.flash("addMessage"),
+  });
 }
 
 //POST the CREATED document to the database
@@ -19,6 +26,18 @@ export function AddContact(
   res: Response,
   next: NextFunction
 ): void {
+  //validate data entered
+  let errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    let errorStringArray = errors.array().map((validationResultObject) => {
+      return validationResultObject.msg;
+    });
+    console.error({ ExpressValidatorError: errorStringArray });
+    req.flash("addMessage", errorStringArray);
+    return res.redirect("add");
+  }
+
   //create new contact
   let newContact = new ContactModel({
     name: req.body.name,

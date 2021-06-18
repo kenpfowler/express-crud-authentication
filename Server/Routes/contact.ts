@@ -14,11 +14,14 @@ import {
 //Import AuthGaurd to prevent users from accessing restricted areas of the application
 import { AuthGaurd } from "../Util/index.js";
 
+//import validators
+import { ContactValidators } from "../Util/validators.js";
+
 //GET route for displaying the ADD page - CREATE Operation
 router.get("/add", AuthGaurd, DisplayAddPage);
 
 //POST route fro processing the ADD page - CREATE Operation
-router.post("/add", AuthGaurd, AddContact);
+router.post("/add", AuthGaurd, ContactValidators, AddContact);
 
 //GET businesscontacts page - READ operation
 router.get("/", AuthGaurd, DisplayBusinessContacts);

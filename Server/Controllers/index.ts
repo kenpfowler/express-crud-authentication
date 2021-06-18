@@ -3,11 +3,10 @@ import UserModel from "../Models/user";
 import passport from "passport";
 
 //impoort validation middleware
-import { check, validationResult } from "express-validator";
+import { validationResult } from "express-validator";
 
 //import utility functions
 import { UserDisplayName } from "../Util";
-import { ValidationError } from "mongoose";
 
 //create and export controllers to be used by the index router
 export function DisplayHomePage(

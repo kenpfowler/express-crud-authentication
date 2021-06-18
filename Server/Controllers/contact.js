@@ -6,11 +6,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DeleteContact = exports.EditContact = exports.DisplayEditPage = exports.DisplayBusinessContacts = exports.AddContact = exports.DisplayAddPage = void 0;
 const contact_js_1 = __importDefault(require("../Models/contact.js"));
 const index_js_1 = require("../Util/index.js");
+const express_validator_1 = require("express-validator");
 function DisplayAddPage(req, res, next) {
-    res.render("add", { title: "Add Contact", username: index_js_1.UserDisplayName(req) });
+    res.render("add", {
+        title: "Add Contact",
+        username: index_js_1.UserDisplayName(req),
+        messages: req.flash("addMessage"),
+    });
 }
 exports.DisplayAddPage = DisplayAddPage;
 function AddContact(req, res, next) {
+    let errors = express_validator_1.validationResult(req);
+    if (!errors.isEmpty()) {
+        let errorStringArray = errors.array().map((validationResultObject) => {
+            return validationResultObject.msg;
+        });
+        console.error({ ExpressValidatorError: errorStringArray });
+        req.flash("addMessage", errorStringArray);
+        return res.redirect("add");
+    }
     let newContact = new contact_js_1.default({
         name: req.body.name,
         phone: req.body.phone,
